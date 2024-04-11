@@ -2,15 +2,33 @@
 
 Create a new React app with the following features:
 
-1. User registration page with fields for email, username, and password. Validate the fields and show error messages if needed. On successful registration, redirect to the login page.
+1. Install the react-router-dom package by running:
+   npm install react-router-dom
 
-2. User login page with fields for username and password. Validate the fields and show error messages if needed. On successful login, redirect to the article list page and store the user token in local storage so the user stays logged in on refresh.
+2. Update the vite.config.js file to include 'react-router-dom' in the rollupOptions.external array:
 
-3. Article list page that shows a loading state while fetching articles from the API at https://hopeful-desire-21262e95c7.strapiapp.com/api/articles. Once loaded, display each article's title. If the user is not logged in, redirect to the login page.
+```js
+export default defineConfig({
+  // ...
+  build: {
+    rollupOptions: {
+      external: ['react-router-dom'],
+    },
+  },
+})
+```
 
-4. Logout button on the article list page that clears the user token from local storage and redirects to the login page.
+3. Set up a basic React Router structure with routes for registration, login, and articles list.
 
-Use Chakra UI for the UI components and styling. Let me know if you have any questions!
+4. User registration page (Register.jsx) with fields for email, username, and password. Validate the fields and show error messages if needed. On successful registration, redirect to the login page. Make sure to export the Register component as the default export.
+
+5. User login page (Login.jsx) with fields for username and password. Validate the fields and show error messages if needed. On successful login, redirect to the article list page and store the user token in local storage so the user stays logged in on refresh. Make sure to export the Login component as the default export.
+
+6. Article list page (Articles.jsx) that shows a loading state while fetching articles from the API at https://hopeful-desire-21262e95c7.strapiapp.com/api/articles. Once loaded, display each article's title. If the user is not logged in, redirect to the login page. Make sure to export the Articles component as the default export.
+
+7. Logout button on the article list page that clears the user token from local storage and redirects to the login page.
+
+Use the shadcn component library and Tailwind CSS for the UI components and styling. Double-check that all components are being exported correctly to avoid any import errors. Let me know if you have any questions!
 
 ## Collaborate with GPT Engineer
 
