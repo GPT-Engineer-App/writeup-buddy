@@ -15,8 +15,11 @@ export default function Articles() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [error, setError] = useState(null);
+  
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  
 
   const fetchArticles = async () => {
     const token = localStorage.getItem("token");
@@ -74,6 +77,8 @@ export default function Articles() {
     setOpen(true);
   };
 
+  
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     navigate("/login");
@@ -119,10 +124,12 @@ export default function Articles() {
           <div key={article.id}>
             {article.attributes.title}
             <Button onClick={() => handleEdit(article)}>Edit</Button>
+            
           </div>
         ))}
         <Button onClick={handleLogout}>Logout</Button>
       </CardContent>
+      
     </Card>
   );
 }
